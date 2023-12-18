@@ -1,5 +1,5 @@
 import { HStack, Heading, List, ListItem } from "@chakra-ui/layout";
-import useGenres, { Genre } from "./hooks/useGenres";
+import useGenres, { Genre } from "../hooks/useGenres";
 import { Image } from "@chakra-ui/image";
 import getCroppedImageUrl from "../services/image-url";
 import { Spinner } from "@chakra-ui/spinner";
@@ -16,6 +16,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
   if (error) return null;
 
   if (isLoading) return <Spinner />;
+
   return (
     <>
       <Heading fontSize={"2xl"} marginBottom={3}>

@@ -4,7 +4,7 @@ import { HStack, Heading, Text } from "@chakra-ui/layout";
 import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "../services/image-url";
-import { Game } from "./hooks/useGames";
+import { Game } from "../hooks/useGames";
 import Emoji from "./Emoji";
 
 interface Props {
