@@ -1,6 +1,6 @@
 import { Card, CardBody } from "@chakra-ui/card";
 import { Image } from "@chakra-ui/image";
-import { HStack, Heading, Text } from "@chakra-ui/layout";
+import { HStack, Heading } from "@chakra-ui/layout";
 import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "../services/image-url";

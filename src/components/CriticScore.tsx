@@ -1,5 +1,4 @@
 import { Badge } from "@chakra-ui/layout";
-import React from "react";
 
 interface Props {
   score: number;
