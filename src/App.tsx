@@ -8,6 +8,8 @@ import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/useGames";
 import SortSelector from "./components/SortSelector";
 import GameHeading from "./components/GameHeading";
+import { setSearchText } from "./state/search/searchSlice";
+import { useDispatch } from "react-redux";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -18,7 +20,7 @@ export interface GameQuery {
 
 function App() {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
-
+  const dispatch = useDispatch();
   return (
     <Grid
       templateAreas={{
@@ -32,7 +34,10 @@ function App() {
     >
       <GridItem area="nav">
         <NavBar
-          onSearch={(searchText) => setGameQuery({ ...gameQuery, searchText })}
+          onSearch={(searchText) => {
+            dispatch(setSearchText(searchText));
+            setGameQuery({ ...gameQuery, searchText });
+          }}
         />
       </GridItem>
       <Show above="lg">

@@ -1,5 +1,7 @@
+import { useSelector } from "react-redux";
 import { GameQuery } from "../App";
 import useData from "./useData";
+import { RootState } from "../state/store";
 
 export interface Platform {
   id: number;
@@ -16,18 +18,20 @@ export interface Game {
   rating_top: number;
 }
 
-const useGames = (gameQuery: GameQuery) =>
-  useData<Game>(
+const useGames = (gameQuery: GameQuery) => {
+  const searchText = useSelector((state: RootState) => state.search.searchText);
+  return useData<Game>(
     "/games",
     {
       params: {
         genres: gameQuery.genre?.id,
         platforms: gameQuery.platform?.id,
         ordering: gameQuery.sortOrder,
-        search: gameQuery.searchText,
+        search: searchText,
       },
     },
     [gameQuery]
   );
+};
 
 export default useGames;
