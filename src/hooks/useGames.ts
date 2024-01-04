@@ -1,7 +1,5 @@
-import { useSelector } from "react-redux";
 import { GameQuery } from "../App";
 import useData from "./useData";
-import { RootState } from "../state/store";
 
 export interface Platform {
   id: number;
@@ -19,7 +17,6 @@ export interface Game {
 }
 
 const useGames = (gameQuery: GameQuery) => {
-  const searchText = useSelector((state: RootState) => state.search.searchText);
   return useData<Game>(
     "/games",
     {
@@ -27,7 +24,7 @@ const useGames = (gameQuery: GameQuery) => {
         genres: gameQuery.genre?.id,
         platforms: gameQuery.platform?.id,
         ordering: gameQuery.sortOrder,
-        search: searchText,
+        search: gameQuery.searchText,
       },
     },
     [gameQuery]
