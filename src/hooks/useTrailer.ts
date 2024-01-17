@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import APIClient from "../services/api-client";
-import { TrailerObject } from "../entities/TrailerObject";
+import Trailer from "../entities/Trailer";
 import ms from "ms";
 
 const useTrailer = (gameId: number) => {
-  const apiClient = new APIClient<TrailerObject>(`/games/${gameId}/movies`);
+  const apiClient = new APIClient<Trailer>(`/games/${gameId}/movies`);
 
   return useQuery({
     queryKey: ["trailers", gameId],
