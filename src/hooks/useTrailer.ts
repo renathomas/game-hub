@@ -3,7 +3,7 @@ import APIClient from "../services/api-client";
 import { TrailerObject } from "../entities/TrailerObject";
 import ms from "ms";
 
-const useGameWithTrailer = (gameId: number) => {
+const useTrailer = (gameId: number) => {
   const apiClient = new APIClient<TrailerObject>(`/games/${gameId}/movies`);
 
   return useQuery({
@@ -13,4 +13,4 @@ const useGameWithTrailer = (gameId: number) => {
     gcTime: ms("30d"),
   });
 };
-export default useGameWithTrailer;
+export default useTrailer;
