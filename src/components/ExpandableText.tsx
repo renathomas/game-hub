@@ -14,7 +14,7 @@ const ExpandableText = ({ children }: Props) => {
   if (!children) return null;
   if (children.length <= limit) return <Text>{children}</Text>;
   return (
-    <Text>
+    <Text marginY={3}>
       {summary}
       <Button
         size={"xs"}
