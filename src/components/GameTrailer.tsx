@@ -8,11 +8,11 @@ interface Props {
 const GameTrailer = ({ gameId }: Props) => {
   const { data, error, isLoading } = useGameWithTrailer(gameId);
 
-  const firstTrailer = data?.results[0];
-
   isLoading && <Spinner />;
 
   if (error) throw error;
+
+  const firstTrailer = data?.results[0];
 
   return firstTrailer ? (
     <video
